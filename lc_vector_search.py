@@ -5,12 +5,16 @@ model = SentenceTransformer('all-MiniLM-L6-v2') #384 dimensional
 #pinecone.init(api_key="89c890aa-ead7-4c56-93d4-57968c3698c2", environment="asia-southeast1-gcp-free")
 #index = pinecone.Index("rohit-search-1")
 
-#pinecone.init(api_key="2d1b9675-5d6a-4a31-9a1f-7e1d7095b593", environment="us-west4-gcp-free")
-#index = pinecone.Index("penfed-data-index")
+pinecone.init(api_key="2d1b9675-5d6a-4a31-9a1f-7e1d7095b593", environment="us-west4-gcp-free")
+index = pinecone.Index("penfed-data-index")
 
 ##******velux index*********##
-pinecone.init(api_key="89c890aa-ead7-4c56-93d4-57968c3698c2", environment="asia-southeast1-gcp-free")
-index = pinecone.Index("velux-index-1")
+#pinecone.init(api_key="89c890aa-ead7-4c56-93d4-57968c3698c2", environment="asia-southeast1-gcp-free")
+#index = pinecone.Index("velux-index-1")
+
+### ************ Novartis Pinecone env details **********
+#pinecone.init(api_key="312f1c16-1f6f-48ea-983a-f0a7b76a29ea", environment="gcp-starter")
+#index = pinecone.Index("novartis-index")
 
 ##
 # def addData(corpusData,url):
