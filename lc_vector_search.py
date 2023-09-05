@@ -27,7 +27,7 @@ index = pinecone.Index("penfed-index")
 #        index.upsert(vectors=[chunkInfo])
 ##
 def find_match(query):
-    docs,res = find_match_private(query,1)
+    docs,res = find_match_private(query,2)
     context= "\n\n".join(res)
     return context
 
