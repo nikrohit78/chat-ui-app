@@ -28,7 +28,7 @@ if 'None' == os.getenv('OPENAI_API_KEY'):
     except:
         print("error reading secrets")
 
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai.api_key)
+llm = ChatOpenAI(model_name="gpt-3.5-turbo-16k", openai_api_key=openai.api_key)
 
 if 'buffer_memory' not in st.session_state:
             st.session_state.buffer_memory=ConversationBufferWindowMemory(k=3,return_messages=True)
