@@ -6,7 +6,10 @@ model = SentenceTransformer('all-MiniLM-L6-v2') #384 dimensional
 #index = pinecone.Index("rohit-search-1")
 
 pinecone.init(api_key="2d1b9675-5d6a-4a31-9a1f-7e1d7095b593", environment="us-west4-gcp-free")
-index = pinecone.Index("penfed-index")
+index = pinecone.Index("bekaert-index")
+
+#pinecone.init(api_key="2d1b9675-5d6a-4a31-9a1f-7e1d7095b593", environment="us-west4-gcp-free")
+#index = pinecone.Index("penfed-index")
 
 ##******velux index*********##
 #pinecone.init(api_key="89c890aa-ead7-4c56-93d4-57968c3698c2", environment="asia-southeast1-gcp-free")
