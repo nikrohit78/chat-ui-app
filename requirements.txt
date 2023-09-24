@@ -11,4 +11,3 @@ unstructured[docx]
 unstructured[pdf]
 docx2txt
 PyPDF2
-selenium
