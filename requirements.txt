@@ -6,3 +6,9 @@ python-dotenv
 langchain
 sentence_transformers
 pinecone-client
+unstructured
+unstructured[docx]
+unstructured[pdf]
+docx2txt
+PyPDF2
+selenium
