@@ -5,7 +5,7 @@ python-dotenv
 ##langchain enterprise data chat-bot requirements
 langchain
 sentence_transformers
-pinecone-client=2.2.2
+pinecone-client==2.2.2
 unstructured
 unstructured[docx]
 unstructured[pdf]
