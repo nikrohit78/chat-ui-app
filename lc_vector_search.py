@@ -1,5 +1,5 @@
-import pinecone
-
+#import pinecone
+from pinecone import Pinecone, ServerlessSpec
 from bs4 import BeautifulSoup
 import pandas as pd
 import requests
@@ -18,8 +18,10 @@ index_name = st.secrets["index_name"]
 index_api_key = st.secrets["index_api_key"]
 index_environment = st.secrets["index_environment"]
 
-pinecone.init(api_key=index_api_key, environment=index_environment)
-index = pinecone.Index(index_name)
+#pinecone.init(api_key=index_api_key, environment=index_environment)
+pc = Pinecone(api_key=index_api_key)
+#self.pinecone = pinecone.Pinecone(api_key=index_api_key)
+index = pc.Index(index_name)
 
 ##******----------------------velux index------------------------*********##
 
@@ -46,8 +48,9 @@ def init_pinecone(selected_index):
         key = st.secrets[selected_index+"_api_key"]
         env = st.secrets[selected_index+"_environment"]
       
-        pinecone.init(api_key=key, environment=env)
-        index = pinecone.Index(selected_index)
+        #pinecone.init(api_key=index_api_key, environment=index_environment)
+        pc = Pinecone(api_key=key)
+        index = pc.Index(selected_index)
 
 ###########-----------------------------query index--------------------------------############################
 
@@ -59,8 +62,10 @@ def find_match(query):
 
 def find_match_private(query,k):
     query_em = model.encode(query).tolist()
-    result = index.query(query_em, top_k=k, includeMetadata=True)
-    
+    #print(query_em)
+    result = index.query(vector=query_em, top_k=k, includeMetadata=True)
+    #print("index is ----- ",index_api_key)
+    #print("result --",result)
     return [result['matches'][i]['metadata']['title'] for i in range(k)],[result['matches'][i]['metadata']['context'] for i in range(k)]
 
 
@@ -180,6 +185,10 @@ def load_docs(directory):
   documents = loader.load()
   return documents
 
+def delete_all_vectors():
+    index.delete(delete_all=True, namespace='')
+
+#delete_all_vectors()
 #documents = load_docs(directory)
 # print(len(documents))
 # print(documents)
