@@ -101,7 +101,7 @@ if(show_sidebar_list != {}):
                 st.sidebar.write('This function is yet to be enabled.')
             ##------ Upload documents (txt,doc,PDF) to index --------###
             if (add_selectbox == "Document Upload"):
-                uploaded_files = st.sidebar.file_uploader("Choose files to upload...!!!",type=['txt','pdf','doc','docx'], accept_multiple_files=True)
+                uploaded_files = st.sidebar.file_uploader("Choose files to upload...!!!",type=['txt','pdf','doc','docx','csv'], accept_multiple_files=True)
                 for file in uploaded_files:
                         file_upload_status = "success"
                         if file is not None:
